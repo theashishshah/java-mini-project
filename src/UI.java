@@ -23,6 +23,22 @@ public class UI {
         collectionSelect = new JComboBox<>(collections);
         JButton fetchButton = new JButton("Fetch Data");
         JButton addButton = new JButton("Add Data");
+
+        fetchButton.setBackground(Color.BLUE);           // Background color
+        fetchButton.setForeground(Color.WHITE);          // Text color
+        fetchButton.setFont(new Font("Arial", Font.BOLD, 14)); // Font style
+
+        addButton.setBackground(Color.GREEN);
+        addButton.setForeground(Color.BLACK);
+        addButton.setFont(new Font("Arial", Font.BOLD, 14));
+
+        fetchButton.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+        addButton.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 2));
+
+        fetchButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        addButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+
+
         resultArea = new JTextArea(15, 40);
         resultArea.setEditable(false);
 
