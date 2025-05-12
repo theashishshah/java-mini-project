@@ -109,6 +109,21 @@ public class UI {
 
         frame.setSize(600, 600);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+//        Create a watermark label
+        JLabel watermark = new JLabel("Team: CoreCode (cc) | Ashish Shah (1BI22CS025) & Gaurav Singh (1BI22CS056)");
+        watermark.setFont(new Font("SansSerif", Font.ITALIC, 12));
+        watermark.setForeground(new Color(150, 150, 150)); // Light gray like a watermark
+        watermark.setHorizontalAlignment(SwingConstants.CENTER);
+
+// Use a JPanel with transparent background to position it
+        JPanel footerPanel = new JPanel();
+        footerPanel.setPreferredSize(new Dimension(frame.getWidth(), 30));
+        footerPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 5));
+        footerPanel.setBackground(new Color(0, 0, 0, 0)); // Transparent background
+        footerPanel.add(watermark);
+
+        frame.add(footerPanel);
         frame.setVisible(true);
     }
 
