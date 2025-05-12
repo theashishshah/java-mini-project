@@ -49,13 +49,34 @@ public class UI {
         frame.add(fetchButton);
         frame.add(addButton);
         frame.add(new JScrollPane(resultArea));
+// --- Student Info Panel ---
+        JPanel studentPanel = new JPanel(new GridLayout(3, 4, 10, 10)); // 3 rows, 4 columns
+        studentPanel.setBorder(BorderFactory.createTitledBorder("Student Info"));
 
-        // Fields for adding data
         idField = new JTextField(10);
         nameField = new JTextField(10);
         gpaField = new JTextField(10);
         gradeField = new JTextField(10);
         enrolledField = new JTextField(10);
+
+        studentPanel.add(new JLabel("ID:"));
+        studentPanel.add(idField);
+        studentPanel.add(new JLabel("Name:"));
+        studentPanel.add(nameField);
+
+        studentPanel.add(new JLabel("GPA:"));
+        studentPanel.add(gpaField);
+        studentPanel.add(new JLabel("Grade:"));
+        studentPanel.add(gradeField);
+
+        studentPanel.add(new JLabel("Enrolled (true/false):"));
+        studentPanel.add(enrolledField);
+        studentPanel.add(new JLabel()); // filler for alignment
+        studentPanel.add(new JLabel()); // filler for alignment
+
+// --- Course Info Panel ---
+        JPanel coursePanel = new JPanel(new GridLayout(3, 4, 10, 10)); // 3 rows, 4 columns
+        coursePanel.setBorder(BorderFactory.createTitledBorder("Course Info"));
 
         courseIdField = new JTextField(10);
         titleField = new JTextField(10);
@@ -63,28 +84,25 @@ public class UI {
         categoryField = new JTextField(10);
         activeField = new JTextField(10);
 
-        // Adding fields and labels to the frame
-        frame.add(new JLabel("ID:"));
-        frame.add(idField);
-        frame.add(new JLabel("Name:"));
-        frame.add(nameField);
-        frame.add(new JLabel("GPA:"));
-        frame.add(gpaField);
-        frame.add(new JLabel("Grade:"));
-        frame.add(gradeField);
-        frame.add(new JLabel("Enrolled (true/false):"));
-        frame.add(enrolledField);
+        coursePanel.add(new JLabel("Course ID:"));
+        coursePanel.add(courseIdField);
+        coursePanel.add(new JLabel("Title:"));
+        coursePanel.add(titleField);
 
-        frame.add(new JLabel("Course ID:"));
-        frame.add(courseIdField);
-        frame.add(new JLabel("Title:"));
-        frame.add(titleField);
-        frame.add(new JLabel("Rating:"));
-        frame.add(ratingField);
-        frame.add(new JLabel("Category:"));
-        frame.add(categoryField);
-        frame.add(new JLabel("Active (true/false):"));
-        frame.add(activeField);
+        coursePanel.add(new JLabel("Rating:"));
+        coursePanel.add(ratingField);
+        coursePanel.add(new JLabel("Category:"));
+        coursePanel.add(categoryField);
+
+        coursePanel.add(new JLabel("Active (true/false):"));
+        coursePanel.add(activeField);
+        coursePanel.add(new JLabel()); // filler
+        coursePanel.add(new JLabel()); // filler
+
+// --- Add to Frame ---
+        frame.add(studentPanel);
+        frame.add(coursePanel);
+
 
         fetchButton.addActionListener(e -> fetchData());
         addButton.addActionListener(e -> addData());
