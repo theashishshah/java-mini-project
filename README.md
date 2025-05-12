@@ -1,5 +1,3 @@
-java-mini-project
-
 # Project Setup Guide
 
 This document provides a step-by-step guide to set up the development environment for this Java-based project, including IDE setup, MySQL configuration, and library dependencies.
