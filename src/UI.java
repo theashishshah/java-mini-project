@@ -169,7 +169,6 @@ public class UI {
         String table = (String) tableSelect.getSelectedItem();
         try (Connection conn = DBConnection.getConnection()) {
             if (table.equals("students")) {
-                // Validate and insert student data
                 int id = Integer.parseInt(idField.getText());
                 String name = nameField.getText();
                 float gpa = Float.parseFloat(gpaField.getText());
@@ -183,14 +182,19 @@ public class UI {
                     ps.setFloat(3, gpa);
                     ps.setString(4, String.valueOf(grade));
                     ps.setBoolean(5, isEnrolled);
-
                     ps.executeUpdate();
+
                     resultArea.setText("Student data added successfully.");
-                } catch (SQLException e) {
-                    resultArea.setText("Error adding student data: " + e.getMessage());
+
+                    // Clear student fields
+                    idField.setText("");
+                    nameField.setText("");
+                    gpaField.setText("");
+                    gradeField.setText("");
+                    enrolledField.setText("");
                 }
+
             } else if (table.equals("courses")) {
-                // Validate and insert course data
                 int courseId = Integer.parseInt(courseIdField.getText());
                 String title = titleField.getText();
                 float rating = Float.parseFloat(ratingField.getText());
@@ -204,11 +208,16 @@ public class UI {
                     ps.setFloat(3, rating);
                     ps.setString(4, String.valueOf(category));
                     ps.setBoolean(5, isActive);
-
                     ps.executeUpdate();
+
                     resultArea.setText("Course data added successfully.");
-                } catch (SQLException e) {
-                    resultArea.setText("Error adding course data: " + e.getMessage());
+
+                    // Clear course fields
+                    courseIdField.setText("");
+                    titleField.setText("");
+                    ratingField.setText("");
+                    categoryField.setText("");
+                    activeField.setText("");
                 }
             }
         } catch (SQLException ex) {
@@ -218,5 +227,6 @@ public class UI {
             throw new RuntimeException(e);
         }
     }
+
 
 }
