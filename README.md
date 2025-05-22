@@ -109,3 +109,17 @@ https://dontpad.com/aapaap
     }
   }
 }```
+
+
+```bash
+sudo yum update -y                    # Update all packages on the instance
+sudo yum install docker -y           # Install Docker
+sudo service docker start            # Start the Docker service
+sudo service docker status           # Check if Docker service is running
+sudo su                              # Switch to the root user
+docker version                       # Check the installed Docker version
+docker pull nginx                    # Download the latest nginx image from Docker Hub
+docker images                        # List all downloaded Docker images
+docker run -d -p 80:80 nginx         # Run nginx container in detached mode and map port 80
+docker ps                            # List all currently running Docker containers
+```
