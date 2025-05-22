@@ -56,3 +56,55 @@ Navigate to where you downloaded mysql-connector-j-8.0.33.jar and select it
 Choose "Compile" scope when prompted
 
 Click OK and Apply
+
+
+https://dontpad.com/aapaap
+{
+  "Comment": "An example of the Amazon States Language for scheduling a task.",
+  "StartAt": "StartHere",
+  "States": {
+    "StartHere": {
+      "Type": "Pass",
+      "Next": "SubjectChoice"
+    },
+    "SubjectChoice": {
+      "Type": "Choice",
+      "Choices": [
+        {
+          "Variable": "$.Subject",
+          "StringEquals": "Physics",
+          "Next": "Physics"
+        },
+        {
+          "Variable": "$.Subject",
+          "StringEquals": "Maths",
+          "Next": "Maths"
+        }
+      ],
+      "Default": "EndState"
+    },
+    "Physics": {
+      "Type": "Pass",
+      "Next": "CheckMarks"
+    },
+    "Maths": {
+      "Type": "Pass",
+      "Next": "CheckMarks"
+    },
+    "CheckMarks": {
+      "Type": "Choice",
+      "Choices": [
+        {
+          "Variable": "$.Marks",
+          "NumericGreaterThan": 70,
+          "Next": "EndState"
+        }
+      ],
+      "Default": "EndState"
+    },
+    "EndState": {
+      "Type": "Pass",
+      "End": true
+    }
+  }
+}
